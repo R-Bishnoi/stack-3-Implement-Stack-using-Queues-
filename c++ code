@@ -1,0 +1,70 @@
+
+class MyStack {
+public:
+    
+    
+queue<int>q1;
+queue<int>q2;
+    
+MyStack() {}
+    
+    
+    
+ //push
+  //(1) take q1 and q2
+  //(2) push ele. in q2
+  // (3) all element push into q2 from q1
+  //(4) swap q1 and q2
+  // now q1 is working as a stack
+    
+    
+void push(int num) {
+    q2.push(num);
+  
+  while(!q1.empty()){
+     int t=q1.front();
+     q1.pop();
+     q2.push(t);
+  }
+  
+  q1.swap(q2);      
+        
+}
+    
+    
+//pop
+    
+ int pop() {
+       
+    if(q1.empty())return -1;
+  else{
+      int t=q1.front();
+      q1.pop();
+      return t;
+  }     
+        
+ }
+   
+//top
+    
+int top() {
+    if(q1.empty())return -1;
+  else{
+      int t=q1.front();
+      return t;
+  }           
+    }
+    
+    
+//empty
+    
+bool empty() {
+      
+     if(q1.empty())return true;
+        else return false;
+}
+    
+    
+};
+
+
